@@ -16,8 +16,8 @@ const app=express();
 connect()
 app.use(cors({
     cors: {
-      origin: ["http://localhost:3000"], 
-      methods: ["GET", "POST"],
+      origin: [`${process.env.FRONTEND_ORIGIN}, http://localhost:3000`], // Allow requests from the frontend
+      methods: ["GET", "POST","PUT", "DELETE","PATCH"],
     },
   }
 ));
@@ -33,7 +33,7 @@ app.get('/',(req,res)=>{
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-      origin: ["http://localhost:3000"], 
+      origin: [`${process.env.FRONTEND_ORIGIN}, http://localhost:3000`],
       methods: ["GET", "POST"],
     },
   });
@@ -84,7 +84,7 @@ io.on("connection", (socket) => {
       });
     });
 
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 3030;
 server.listen(PORT,()=>{
-    console.log(`Server is running on port http://127.0.0.1:${PORT}`);
+    console.log(`Server is running on port http://localhost:${PORT}`);
 });

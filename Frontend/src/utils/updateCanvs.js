@@ -2,7 +2,7 @@ const updateCanvas = async (canvasId, elements) => {
   // console.log('Updating canvas with  ',elements);
   try {
     const token = localStorage.getItem('token');
-    const response = await fetch(`http://localhost:3030/api/canvas/${canvasId}`, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/canvas/${canvasId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

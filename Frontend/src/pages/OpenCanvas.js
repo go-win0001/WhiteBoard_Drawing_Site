@@ -26,7 +26,7 @@ function Canvas({id}) {
     const fetchCanvas = async () => {
       try {
         const token =localStorage.getItem("token");
-        const res = await fetch(`http://localhost:3030/api/canvas/load/${canvasId}`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/canvas/load/${canvasId}`, {
           headers: {
             authorization: token,
               'Cache-Control': 'no-cache' 

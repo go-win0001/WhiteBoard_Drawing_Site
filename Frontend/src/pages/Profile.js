@@ -17,7 +17,7 @@ function Profile() {
   const fetchCanvas = async () => {
       try {
         const token =localStorage.getItem("token");
-        const res = await fetch('http://localhost:3030/api/canvas', {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/canvas`, {
           headers: { authorization: token },
            'Cache-Control': 'no-cache' 
         });
@@ -43,7 +43,7 @@ function Profile() {
     setSuccessMsg('');
     try {
      const token =localStorage.getItem("token");
-      const response = await fetch('http://localhost:3030/api/canvas', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/canvas`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const handleDeleteCanvas = async (canvasId) => {
     }
 
       const token =localStorage.getItem("token");
-    const res = await fetch(`http://localhost:3030/api/canvas/${canvasId}`, {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/canvas/${canvasId}`, {
       method: 'DELETE',
       headers: {
         authorization: token,
@@ -100,7 +100,7 @@ const handleDeleteCanvas = async (canvasId) => {
     // console.log(email);
     try {
       const token =localStorage.getItem("token");
-      await fetch(`http://localhost:3030/api/canvas/share/${canvasId}`, {
+      await fetch(`${process.env.REACT_APP_API_URL}/api/canvas/share/${canvasId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

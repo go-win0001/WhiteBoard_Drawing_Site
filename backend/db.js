@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const username = 'whiteboard-user';
-const password = 'uOOj1M633nY05UVY';
-const db_url = `mongodb+srv://whiteboard-user:uOOj1M633nY05UVY@cluster0.kf5loy0.mongodb.net/white-board-app`;
+const db_url = process.env.db_url;
 
 const connectDB = async () => {
   try {

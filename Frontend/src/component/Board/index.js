@@ -63,7 +63,7 @@ function Board({id}) {
       if (id) {
         try {
           const token=localStorage.getItem("token")
-          const response = await axios.get(`http://localhost:3030/api/canvas/load/${id}`, {
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/canvas/load/${id}`, {
             headers: { authorization: `${token}` },
           });
           // setCanvasId(id); // Set the current canvas ID
