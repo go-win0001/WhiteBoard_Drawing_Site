@@ -2,10 +2,7 @@ import React, { useEffect, useState ,useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 // import {getToken} from '../utils/token';
 import Button from '../component/Button';
-import socket from '../utils/socket';
 function Profile() {
-
-  
 
   const [canvases, setCanvases] = useState([]);
   const [ownerName, setOwnerName] = useState(''); // Owner's name
